@@ -10,7 +10,7 @@ export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
-  const frameCount = 49;
+  const frameCount = 157;
 
   useEffect(() => {
     setIsMounted(true);
@@ -19,7 +19,7 @@ export function HeroSection() {
     for (let i = 1; i <= frameCount; i++) {
         const img = new window.Image();
         const frameStr = i.toString().padStart(3, "0");
-        img.src = `/animationcafe/ezgif-frame-${frameStr}.jpg`;
+        img.src = `/animationcafe/ezgif-frame-${frameStr}.png`;
         img.onload = () => {
             loadedCount++;
             if (loadedCount === frameCount) setImagesPreloaded(true);
@@ -72,7 +72,7 @@ export function HeroSection() {
         >
             {isMounted && (
               <img 
-                src={`/animationcafe/ezgif-frame-${currentFrameString}.jpg`}
+                src={`/animationcafe/ezgif-frame-${currentFrameString}.png`}
                 alt="Altura Coffee Premium Packaging"
                 className="w-full h-full object-cover md:object-contain mix-blend-lighten transition-opacity duration-100" 
               />
