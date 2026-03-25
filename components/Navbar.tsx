@@ -9,12 +9,12 @@ export function Navbar() {
   const { lang, setLang, dict, mounted } = useLanguage();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5 bg-background/50 backdrop-blur-md transition-all">
+    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5 bg-background/50 backdrop-blur-md transition-all pt-4 md:pt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20">
           <div className="flex items-center gap-2">
-            <Coffee className="w-8 h-8 text-accent" />
-            <Link href="/" className="text-2xl font-display font-light tracking-widest text-white uppercase hover:text-accent transition-colors duration-300">
+            <Coffee className="w-6 h-6 md:w-8 md:h-8 text-accent" />
+            <Link href="/" className="text-xl md:text-2xl font-display font-light tracking-widest text-white uppercase hover:text-accent transition-colors duration-300">
               Altura
             </Link>
           </div>

@@ -44,14 +44,14 @@ export function TestimonialsSection() {
           {testimonialsData.map((item, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center text-center px-4"
+              className="flex flex-col items-center text-center px-4 mb-16 md:mb-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               <div className="text-accent text-4xl font-serif mb-6">&quot;</div>
-              <p className="text-muted text-lg font-light leading-relaxed mb-8 italic text-balance">
+              <p className="text-muted text-lg md:text-lg font-light leading-relaxed mb-8 italic text-balance">
                 {item.quote}
               </p>
               <div>

@@ -37,7 +37,7 @@ export function StorySection() {
           </motion.div>
 
           <motion.div
-            className="relative h-[600px] w-full bg-surface rounded-sm overflow-hidden"
+            className="relative h-[400px] lg:h-[600px] w-full bg-surface rounded-sm overflow-hidden"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.1 }}

@@ -14,42 +14,42 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 border-b border-white/5 pb-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <Coffee className="w-6 h-6 text-accent" />
-              <span className="text-xl font-display font-light tracking-widest text-white uppercase group hover:text-accent transition-colors">
+              <Coffee className="w-5 h-5 md:w-6 md:h-6 text-accent" />
+              <span className="text-lg md:text-xl font-display font-light tracking-widest text-white uppercase group hover:text-accent transition-colors">
                 {dict.footer.brand}
               </span>
             </div>
-            <p className="text-silver/60 max-w-sm mb-8 leading-relaxed font-light">
+            <p className="text-silver/60 text-sm md:text-base max-w-sm mb-8 leading-relaxed font-light">
               {dict.footer.desc}
             </p>
           </div>
           
           <div>
             <h3 className="text-white font-medium tracking-widest uppercase mb-6 text-xs">{dict.footer.shop}</h3>
-            <ul className="space-y-4">
-              <li><Link href="#collections" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.shopLinks.all}</Link></li>
-              <li><Link href="#collections" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.shopLinks.reserve}</Link></li>
-              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.shopLinks.equipment}</Link></li>
-              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.shopLinks.gifts}</Link></li>
+            <ul className="space-y-4 md:space-y-4">
+              <li><Link href="#collections" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.shopLinks.all}</Link></li>
+              <li><Link href="#collections" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.shopLinks.reserve}</Link></li>
+              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.shopLinks.equipment}</Link></li>
+              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.shopLinks.gifts}</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-white font-medium tracking-widest uppercase mb-6 text-xs">{dict.footer.about}</h3>
-            <ul className="space-y-4">
-              <li><Link href="#story" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.aboutLinks.story}</Link></li>
-              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.aboutLinks.sourcing}</Link></li>
-              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.aboutLinks.journal}</Link></li>
-              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light">{dict.footer.aboutLinks.contact}</Link></li>
+            <ul className="space-y-4 md:space-y-4">
+              <li><Link href="#story" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.aboutLinks.story}</Link></li>
+              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.aboutLinks.sourcing}</Link></li>
+              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.aboutLinks.journal}</Link></li>
+              <li><Link href="#" className="text-silver/50 hover:text-accent transition-all duration-300 text-sm font-light block py-1">{dict.footer.aboutLinks.contact}</Link></li>
             </ul>
           </div>
         </div>
         
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs tracking-widest text-silver/30 font-medium">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs tracking-widest text-silver/30 font-medium">
           <p>{dict.footer.copyright}</p>
-          <div className="mt-4 md:mt-0 space-x-8 uppercase">
-            <Link href="#" className="hover:text-accent transition-colors">{dict.footer.socialLinks.ig}</Link>
-            <Link href="#" className="hover:text-accent transition-colors">{dict.footer.socialLinks.x}</Link>
+          <div className="mt-6 md:mt-0 space-x-8 uppercase">
+            <Link href="#" className="p-2 hover:text-accent transition-colors">{dict.footer.socialLinks.ig}</Link>
+            <Link href="#" className="p-2 hover:text-accent transition-colors">{dict.footer.socialLinks.x}</Link>
           </div>
         </div>
       </div>

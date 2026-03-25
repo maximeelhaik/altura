@@ -119,26 +119,26 @@ export function HeroSection() {
              </span>
           </motion.div>
 
-          <motion.div 
-            className="absolute px-4 w-full max-w-6xl flex flex-col items-center justify-center pointer-events-auto"
-            style={{ opacity: text3Opacity, filter: text3Filter, scale: text3Scale }}
-          >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-light tracking-tighter text-white mb-6 leading-[1.1] md:leading-none text-balance text-center">
-              {dict.hero.title1} <br className="hidden md:block" />
-              <span className="italic font-serif text-silver">{dict.hero.title2}</span>
-            </h1>
-            <p className="text-sm md:text-base text-silver/70 max-w-lg font-light mb-8 leading-relaxed text-balance mx-auto text-center">
-              {dict.hero.description}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-center justify-center">
-              <button className="bg-accent text-white px-8 md:px-10 py-3 md:py-4 rounded-sm font-medium tracking-[0.2em] hover:bg-accent/90 transition-all duration-300 uppercase text-xs md:text-sm shadow-[0_0_20px_rgba(250,66,3,0.3)]">
-                {dict.hero.shopBtn}
-              </button>
-              <button className="text-silver border-b border-silver/30 pb-1 px-2 font-medium tracking-[0.1em] hover:border-accent transition-all duration-300 uppercase text-xs md:text-sm">
-                {dict.hero.heritageBtn}
-              </button>
-            </div>
-          </motion.div>
+            <motion.div 
+              className="absolute px-4 w-full max-w-6xl flex flex-col items-center justify-center pointer-events-auto"
+              style={{ opacity: text3Opacity, filter: text3Filter, scale: text3Scale }}
+            >
+              <h1 className="text-3xl md:text-7xl lg:text-8xl font-display font-light tracking-tighter text-white mb-6 leading-[1.1] md:leading-none text-balance text-center">
+                {dict.hero.title1} <br className="hidden md:block" />
+                <span className="italic font-serif text-silver">{dict.hero.title2}</span>
+              </h1>
+              <p className="text-xs md:text-base text-silver/70 max-w-lg font-light mb-8 leading-relaxed text-balance mx-auto text-center">
+                {dict.hero.description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 md:gap-6 items-center justify-center">
+                <button className="bg-accent text-white px-10 py-4 md:px-10 md:py-4 rounded-sm font-medium tracking-[0.2em] hover:bg-accent/90 transition-all duration-300 uppercase text-xs md:text-sm shadow-[0_0_20px_rgba(250,66,3,0.3)]">
+                  {dict.hero.shopBtn}
+                </button>
+                <button className="text-silver border-b border-silver/30 pb-1 px-2 font-medium tracking-[0.1em] hover:border-accent transition-all duration-300 uppercase text-xs md:text-sm">
+                  {dict.hero.heritageBtn}
+                </button>
+              </div>
+            </motion.div>
           
         </div>
 
