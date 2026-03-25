@@ -1,56 +1,102 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function StorySection() {
   const { dict } = useLanguage();
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // Parallax and scale effects for the background
+  const imageScale = useTransform(smoothProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
+  const imageOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const textY = useTransform(smoothProgress, [0, 1], [100, -100]);
+  const bgBrightness = useTransform(smoothProgress, [0, 0.5, 1], [0.4, 0.6, 0.4]);
 
   return (
-    <section id="story" className="py-32 md:py-48 bg-background relative z-10 -mt-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
-          
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+    <section 
+      ref={containerRef}
+      id="story" 
+      className="relative h-[120vh] md:h-[150vh] flex items-center justify-center overflow-hidden bg-background z-10"
+      style={{ marginTop: "-20vh" }}
+    >
+      {/* Immersive Background Image */}
+      <motion.div 
+        className="absolute inset-0 z-0 will-change-transform"
+        style={{ 
+          scale: imageScale,
+          opacity: imageOpacity,
+        }}
+      >
+        <div 
+          className="absolute inset-0 bg-[url('/images/paysage1.jpg')] bg-cover bg-center grayscale-0"
+          style={{ transition: "filter 1.5s ease-in-out" }}
+        />
+        {/* Dynamic Overlay for Contrast */}
+        <motion.div 
+          className="absolute inset-0 bg-black/40"
+          style={{ opacity: bgBrightness }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+      </motion.div>
+
+      {/* Cinematic Content Container */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <motion.div
+          style={{ y: textY }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+        >
+          <motion.span 
+            className="text-accent font-medium tracking-[0.4em] uppercase text-xs mb-8 block"
+            initial={{ opacity: 0, letterSpacing: "0.2em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.4em" }}
+            transition={{ duration: 1.5 }}
           >
-            <span className="text-silver font-medium tracking-[0.2em] uppercase text-xs mb-8 block">
-              {dict.story.subtitle}
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-8 max-w-sm">
-              {dict.story.title}
-            </h2>
-            <p className="text-muted text-lg leading-relaxed mb-6 font-light">
+            {dict.story.subtitle}
+          </motion.span>
+          
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-light leading-tight mb-12 tracking-tighter text-white">
+            {dict.story.title.split(' ').map((word, i) => (
+              <span key={i} className="inline-block mr-4 last:mr-0 italic font-serif text-silver">
+                {word}
+              </span>
+            ))}
+          </h2>
+
+          <div className="space-y-6 max-w-2xl mx-auto">
+            <p className="text-silver/90 text-lg md:text-xl leading-relaxed font-light text-balance drop-shadow-md">
               {dict.story.p1}
             </p>
-            <p className="text-muted text-lg leading-relaxed font-light mb-10">
+            <p className="text-silver/70 text-base md:text-lg leading-relaxed font-light text-balance drop-shadow-sm">
               {dict.story.p2}
             </p>
-            
-            <button className="text-accent border-b border-accent/30 pb-1 font-medium tracking-wide hover:border-accent transition-all duration-300 uppercase text-sm">
+          </div>
+          
+          <motion.div 
+            className="mt-16"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <button className="text-white border-b-2 border-accent pb-2 font-medium tracking-widest hover:text-accent transition-all duration-300 uppercase text-sm">
               {dict.story.btn}
             </button>
           </motion.div>
-
-          <motion.div
-            className="relative h-[400px] lg:h-[600px] w-full bg-surface rounded-sm overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div 
-              className="absolute inset-0 bg-[url('/images/paysage1.jpg')] 
-              bg-cover bg-center grayscale opacity-60 mix-blend-multiply hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-cherry/20 to-transparent pointer-events-none" />
-          </motion.div>
-          
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -61,8 +61,7 @@ export function HeroSection() {
   const imageOpacity = useTransform(scrollYProgress, [0.76, 0.87], [0.9, 0.15]);
 
   // Dissolve exit: fade the entire sticky panel cleanly in the last ~20% of scroll
-  const stickyOpacity = useTransform(scrollYProgress, [0.78, 0.97], [1, 0]);
-  const stickyY = useTransform(scrollYProgress, [0.78, 0.97], ["0%", "-5%"]);
+  const stickyOpacity = useTransform(scrollYProgress, [0.78, 0.98], [1, 0]);
 
   const currentFrameString = currentIndex.toString().padStart(3, "0");
 
@@ -71,7 +70,7 @@ export function HeroSection() {
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         <motion.div
           className="absolute inset-0 w-full h-full"
-          style={{ opacity: stickyOpacity, y: stickyY }}
+          style={{ opacity: stickyOpacity }}
         >
         <motion.div 
           className="absolute inset-0 z-0 flex items-center justify-center w-full h-full"
