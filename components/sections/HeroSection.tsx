@@ -87,15 +87,17 @@ export function HeroSection() {
             
             {!imagesPreloaded && isMounted && (
                <div className="absolute inset-0 flex items-center justify-center bg-background z-50">
-                  <span className="text-gold tracking-[0.2em] uppercase text-xs animate-pulse">
+                  <span className="text-accent tracking-[0.2em] uppercase text-xs animate-pulse">
                      Loading Experience...
                   </span>
                </div>
             )}
         </motion.div>
 
+        {/* Dynamic Glows based on new palette */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#050505_90%)] z-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background opacity-80 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-cherry/10 to-background opacity-60 z-10 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-crimson/5 blur-[120px] rounded-full z-0 pointer-events-none" />
 
         <div className="absolute inset-0 z-20 flex flex-col justify-center items-center pointer-events-none">
           
@@ -103,7 +105,7 @@ export function HeroSection() {
             className="absolute px-4 text-center w-full max-w-4xl"
             style={{ opacity: text1Opacity, filter: text1Filter, scale: text1Scale }}
           >
-             <span className="text-gold font-medium tracking-[0.3em] md:tracking-[0.5em] uppercase text-xs md:text-sm">
+             <span className="text-silver font-medium tracking-[0.3em] md:tracking-[0.5em] uppercase text-xs md:text-sm">
                 {dict.hero.subtitle1}
              </span>
           </motion.div>
@@ -123,16 +125,16 @@ export function HeroSection() {
           >
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-light tracking-tighter text-white mb-6 leading-[1.1] md:leading-none text-balance text-center">
               {dict.hero.title1} <br className="hidden md:block" />
-              <span className="italic font-serif">{dict.hero.title2}</span>
+              <span className="italic font-serif text-silver">{dict.hero.title2}</span>
             </h1>
-            <p className="text-sm md:text-base text-muted max-w-lg font-light mb-8 leading-relaxed text-balance mx-auto text-center">
+            <p className="text-sm md:text-base text-silver/70 max-w-lg font-light mb-8 leading-relaxed text-balance mx-auto text-center">
               {dict.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-center justify-center">
-              <button className="bg-white text-background px-8 md:px-10 py-3 md:py-4 rounded-sm font-medium tracking-[0.2em] hover:bg-white/90 transition-all duration-300 uppercase text-xs md:text-sm">
+              <button className="bg-accent text-white px-8 md:px-10 py-3 md:py-4 rounded-sm font-medium tracking-[0.2em] hover:bg-accent/90 transition-all duration-300 uppercase text-xs md:text-sm shadow-[0_0_20px_rgba(250,66,3,0.3)]">
                 {dict.hero.shopBtn}
               </button>
-              <button className="text-white border-b border-white/30 pb-1 px-2 font-medium tracking-[0.1em] hover:border-white transition-all duration-300 uppercase text-xs md:text-sm">
+              <button className="text-silver border-b border-silver/30 pb-1 px-2 font-medium tracking-[0.1em] hover:border-accent transition-all duration-300 uppercase text-xs md:text-sm">
                 {dict.hero.heritageBtn}
               </button>
             </div>
@@ -145,8 +147,8 @@ export function HeroSection() {
           style={{ opacity: useTransform(scrollYProgress, [0, 0.05], [1, 0]) }}
         >
           <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} className="flex flex-col items-center">
-            <span className="text-[10px] text-white/50 tracking-[0.3em] uppercase mb-3">{dict.hero.scroll}</span>
-            <ChevronDown className="w-5 h-5 text-white/50" />
+            <span className="text-[10px] text-silver/50 tracking-[0.3em] uppercase mb-3">{dict.hero.scroll}</span>
+            <ChevronDown className="w-5 h-5 text-silver/50" />
           </motion.div>
         </motion.div>
         </motion.div>

@@ -18,7 +18,7 @@ export function StorySection() {
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-8 block">
+            <span className="text-silver font-medium tracking-[0.2em] uppercase text-xs mb-8 block">
               {dict.story.subtitle}
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-8 max-w-sm">
@@ -31,7 +31,7 @@ export function StorySection() {
               {dict.story.p2}
             </p>
             
-            <button className="text-white border-b border-white/30 pb-1 font-medium tracking-wide hover:border-white transition-all duration-300 uppercase text-sm">
+            <button className="text-accent border-b border-accent/30 pb-1 font-medium tracking-wide hover:border-accent transition-all duration-300 uppercase text-sm">
               {dict.story.btn}
             </button>
           </motion.div>
@@ -45,8 +45,9 @@ export function StorySection() {
           >
             <div 
               className="absolute inset-0 bg-[url('/images/paysage1.jpg')] 
-              bg-cover bg-center grayscale opacity-80 mix-blend-luminosity hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
+              bg-cover bg-center grayscale opacity-60 mix-blend-multiply hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
             />
+            <div className="absolute inset-0 bg-gradient-to-tr from-cherry/20 to-transparent pointer-events-none" />
           </motion.div>
           
         </div>

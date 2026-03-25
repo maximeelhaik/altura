@@ -26,9 +26,8 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section id="testimonials" className="py-32 bg-background border-y border-white/5 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent hidden md:block" />
-      
+    <section id="testimonials" className="py-32 md:py-48 bg-background border-y border-white/5 relative overflow-hidden">
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cherry/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           className="text-center mb-20"
@@ -36,7 +35,7 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <span className="text-gold font-medium tracking-[0.2em] uppercase text-xs block">
+          <span className="text-silver font-medium tracking-[0.2em] uppercase text-xs block">
             {dict.testimonials.subtitle}
           </span>
         </motion.div>
@@ -51,7 +50,7 @@ export function TestimonialsSection() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="text-gold text-4xl font-serif mb-6">&quot;</div>
+              <div className="text-accent text-4xl font-serif mb-6">&quot;</div>
               <p className="text-muted text-lg font-light leading-relaxed mb-8 italic text-balance">
                 {item.quote}
               </p>

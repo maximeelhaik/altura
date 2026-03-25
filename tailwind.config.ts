@@ -12,7 +12,10 @@ const config: Config = {
         background: "#050505",
         foreground: "#FAFAFA",
         muted: "#A1A1AA",
-        gold: "#C5A880",
+        accent: "#FA4203", // Blazing Flame
+        silver: "#D0C2C0", // Silver Metallic
+        crimson: "#971A1A", // Deep Crimson
+        cherry: "#520604", // Black Cherry
         surface: "rgba(255, 255, 255, 0.03)",
         "surface-hover": "rgba(255, 255, 255, 0.08)"
       },

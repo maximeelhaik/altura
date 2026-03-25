@@ -42,7 +42,7 @@ export function CollectionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
         >
-          <span className="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">
+          <span className="text-silver font-medium tracking-[0.2em] uppercase text-xs mb-4 block">
             {dict.collections.subtitle}
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-light uppercase">
@@ -60,7 +60,7 @@ export function CollectionsSection() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="relative w-full aspect-[3/4] mb-8 overflow-hidden rounded-sm bg-surface">
+              <div className="relative w-full aspect-[3/4] mb-8 overflow-hidden rounded-sm bg-surface text-silver/10">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -71,13 +71,13 @@ export function CollectionsSection() {
                 
                 {/* Glassmorphism Add to Cart */}
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 z-20">
-                  <button className="glass text-white px-8 py-3 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors">
+                  <button className="glass text-white px-8 py-3 text-xs tracking-widest uppercase hover:bg-accent hover:border-accent transition-colors">
                     {dict.collections.addToCart}
                   </button>
                 </div>
               </div>
 
-              <h3 className="text-2xl font-display tracking-wide mb-2 text-white group-hover:text-gold transition-colors text-center">
+              <h3 className="text-2xl font-display tracking-wide mb-2 text-white group-hover:text-accent transition-colors text-center">
                 {item.name}
               </h3>
               <p className="text-muted text-sm font-light uppercase tracking-wider mb-4 text-center h-10">
