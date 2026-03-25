@@ -60,12 +60,19 @@ export function HeroSection() {
 
   const imageOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0.9, 0.15]);
 
+  // Dissolve exit: fade + slide the entire sticky panel out as user leaves the section
+  const stickyOpacity = useTransform(scrollYProgress, [0.75, 1.0], [1, 0]);
+  const stickyY = useTransform(scrollYProgress, [0.75, 1.0], ["0%", "-8%"]);
+
   const currentFrameString = currentIndex.toString().padStart(3, "0");
 
   return (
     <section ref={containerRef} className="relative w-full bg-background" style={{ height: "200vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        
+        <motion.div
+          className="absolute inset-0 w-full h-full"
+          style={{ opacity: stickyOpacity, y: stickyY }}
+        >
         <motion.div 
           className="absolute inset-0 z-0 flex items-center justify-center w-full h-full"
           style={{ opacity: imageOpacity }}
@@ -142,7 +149,7 @@ export function HeroSection() {
             <ChevronDown className="w-5 h-5 text-white/50" />
           </motion.div>
         </motion.div>
-
+        </motion.div>
       </div>
     </section>
   );

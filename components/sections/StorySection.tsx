@@ -8,15 +8,15 @@ export function StorySection() {
   const { dict } = useLanguage();
 
   return (
-    <section id="story" className="py-32 md:py-48 bg-background relative z-10">
+    <section id="story" className="py-32 md:py-48 bg-background relative z-10 -mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
           
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-8 block">
               {dict.story.subtitle}
