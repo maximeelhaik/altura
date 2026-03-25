@@ -33,41 +33,41 @@ export function HeroSection() {
     offset: ["start start", "end end"]
   });
 
-  const frameIndex = useTransform(scrollYProgress, [0, 0.35], [1, frameCount]);
+  const frameIndex = useTransform(scrollYProgress, [0, 0.42], [1, frameCount]);
   const [currentIndex, setCurrentIndex] = useState(1);
 
   useMotionValueEvent(frameIndex, "change", (latest) => {
     setCurrentIndex(Math.round(latest) || 1);
   });
 
-  // Phase 1: 0.0 -> 0.15
-  const text1Opacity = useTransform(scrollYProgress, [0.0, 0.05, 0.1, 0.15], [0, 1, 1, 0]);
-  const text1BlurRaw = useTransform(scrollYProgress, [0.0, 0.05, 0.1, 0.15], [10, 0, 0, 10]);
+  // Phase 1: 0.0 -> 0.12
+  const text1Opacity = useTransform(scrollYProgress, [0.35, 0.43, 0.50, 0.56], [0, 1, 1, 0]);
+  const text1BlurRaw = useTransform(scrollYProgress, [0.35, 0.43, 0.50, 0.56], [10, 0, 0, 10]);
   const text1Filter = useMotionTemplate`blur(${text1BlurRaw}px)`;
-  const text1Scale = useTransform(scrollYProgress, [0.0, 0.15], [0.9, 1.05]);
+  const text1Scale = useTransform(scrollYProgress, [0.35, 0.56], [0.9, 1.05]);
 
-  // Phase 2: 0.15 -> 0.35
-  const text2Opacity = useTransform(scrollYProgress, [0.15, 0.2, 0.3, 0.35], [0, 1, 1, 0]);
-  const text2BlurRaw = useTransform(scrollYProgress, [0.15, 0.2, 0.3, 0.35], [10, 0, 0, 10]);
+  // Phase 2: 0.56 -> 0.76
+  const text2Opacity = useTransform(scrollYProgress, [0.56, 0.62, 0.70, 0.76], [0, 1, 1, 0]);
+  const text2BlurRaw = useTransform(scrollYProgress, [0.56, 0.62, 0.70, 0.76], [10, 0, 0, 10]);
   const text2Filter = useMotionTemplate`blur(${text2BlurRaw}px)`;
-  const text2Scale = useTransform(scrollYProgress, [0.15, 0.35], [0.9, 1.05]);
+  const text2Scale = useTransform(scrollYProgress, [0.56, 0.76], [0.9, 1.05]);
 
-  // Phase 3 (Final Hero Text): 0.35 -> 0.5
-  const text3Opacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
-  const text3BlurRaw = useTransform(scrollYProgress, [0.35, 0.45], [10, 0]);
+  // Phase 3 (Final Hero Text): 0.76 -> 0.85
+  const text3Opacity = useTransform(scrollYProgress, [0.76, 0.84], [0, 1]);
+  const text3BlurRaw = useTransform(scrollYProgress, [0.76, 0.84], [10, 0]);
   const text3Filter = useMotionTemplate`blur(${text3BlurRaw}px)`;
-  const text3Scale = useTransform(scrollYProgress, [0.35, 0.45], [0.95, 1]);
+  const text3Scale = useTransform(scrollYProgress, [0.76, 0.84], [0.95, 1]);
 
-  const imageOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0.9, 0.15]);
+  const imageOpacity = useTransform(scrollYProgress, [0.76, 0.87], [0.9, 0.15]);
 
-  // Dissolve exit: fade + slide the entire sticky panel out as user leaves the section
-  const stickyOpacity = useTransform(scrollYProgress, [0.75, 1.0], [1, 0]);
-  const stickyY = useTransform(scrollYProgress, [0.75, 1.0], ["0%", "-8%"]);
+  // Dissolve exit: fade the entire sticky panel cleanly in the last ~20% of scroll
+  const stickyOpacity = useTransform(scrollYProgress, [0.78, 0.97], [1, 0]);
+  const stickyY = useTransform(scrollYProgress, [0.78, 0.97], ["0%", "-5%"]);
 
   const currentFrameString = currentIndex.toString().padStart(3, "0");
 
   return (
-    <section ref={containerRef} className="relative w-full bg-background" style={{ height: "200vh" }}>
+    <section ref={containerRef} className="relative w-full bg-background" style={{ height: "300vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         <motion.div
           className="absolute inset-0 w-full h-full"

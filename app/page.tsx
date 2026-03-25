@@ -8,7 +8,10 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <StorySection />
+      {/* Negative margin pulls Story section up so it emerges beneath the fading hero with no dead zone */}
+      <div style={{ marginTop: "-50vh", paddingTop: "50vh", position: "relative", zIndex: 5 }}>
+        <StorySection />
+      </div>
       <CollectionsSection />
       <TestimonialsSection />
       <CtaSection />
